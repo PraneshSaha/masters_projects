@@ -1,0 +1,244 @@
+version: "2.0"
+nlu:
+- intent: affirm
+  examples: |
+    - yes
+    - yep
+    - yeah
+    - indeed
+    - that's right
+    - ok
+    - great
+    - right, thank you
+    - correct
+    - great choice
+    - sounds really good
+    - thanks
+    - Yes
+    - No
+    - Ok
+    - Ok, thank you
+    - Ok no problem
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - good bye
+    - stop
+    - end
+    - farewell
+    - Bye bye
+    - have a good one
+    - Ok, bye then
+- intent: greet
+  examples: |
+    - hey
+    - howdy
+    - hey there
+    - hello
+    - hi
+    - good morning
+    - good evening
+    - dear sir
+    - Hi
+    - hi there
+    - hola
+    - Hola!!!
+    - Hi, how are you?
+- intent: send_email
+  examples: |
+    - [yes send me the mail](send_email)
+    - [do send the mail](send_email)
+    - I [need the mail](send_email
+    - [forward me the mail](send_email)
+    - [Yes send me mail](send_email) please
+    - My mail is [pritishsaha2789@gmail.com](email)
+    - [yes send email](send_email)
+    - my email is [pranesh01@gmail.com](email)
+    - Here is my mail [goja.123@etu.edu](email)
+    - [praneshsaha01@gmail.com](email)
+    - My email is [gojakumar@fvr.in](email)
+    - [yes plese send me the email](send_email)
+    - [Yes send me the mail](send_email) at [bookwormpranesh@gmail.com](email)
+    - [Yes, send me](send_email) at [boka.set@rti.in](email)
+    - [Send the mail to](send_email) [praneshsaha01@gmail.com](email)
+    - [Yes send out the recommendations](send_email)
+    - [retqi@email.in](email)
+    - [yes send email](send_email)
+    - [praneshsaha01@gmail.com](email) is my email
+    - [forward the list to](send_email) [riga.riga@wei.com](email)
+- intent: donot_send_email
+  examples: |
+    - no, I [donot need the mail](donot_send_email)
+    - I [don't need the mail](donot_send_email)
+    - there is [no need to send the mail](donot_send_email)
+    - [no mail is needed](donot_send_email)
+    - [no don't send email](donot_send_email)
+    - [don't send mail](donot_send_email)
+    - [no don't send any email](donot_send_email) to me
+    - [please don't bother to send](donot_send_email)
+    - I [don't need mail](donot_send_email)
+    - [don't send any mail](donot_send_email)
+    - [no don't send email](donot_send_email)
+    - [don't bother](donot_send_email)
+- intent: restaurant_search
+  examples: |
+    - i'm looking for a place to eat
+    - I want to grab lunch
+    - I am searching for a dinner spot
+    - I am looking for some restaurants in [Delhi](location).
+    - I am looking for some restaurants in [Bangalore](location)
+    - show me [chinese](cuisine) restaurants
+    - show me [chines]{"entity": "cuisine", "value": "chinese"} restaurants in the [New Delhi]{"entity": "location", "value": "Delhi"}
+    - show me a [mexican](cuisine) place in the [centre](location)
+    - i am looking for an [indian](cuisine) spot called olaolaolaolaolaola
+    - search for restaurants
+    - anywhere in the [west](location)
+    - I am looking for [asian fusion](cuisine) food
+    - I am looking a restaurant in [294328](location)
+    - in [Gurgaon](location)
+    - [South Indian](cuisine)
+    - [North Indian](cuisine)
+    - [Italian](cuisine)
+    - [Chinese]{"entity": "cuisine", "value": "chinese"}
+    - [chinese](cuisine)
+    - [Lithuania](location)
+    - Oh, sorry, in [Italy](location)
+    - in [delhi](location)
+    - I am looking for some restaurants in [Mumbai](location)
+    - I am looking for [mexican indian fusion](cuisine)
+    - can you book a table in [rome](location)  for [four]{"entity": "people", "value": "4"} people
+    - [central indian](cuisine) restaurant
+    - please help me to find restaurants in [pune](location)
+    - Please find me a restaurant in [bangalore](location)
+    - [mumbai](location)
+    - show me restaurants
+    - please find me [chinese](cuisine) restaurant in [delhi](location)
+    - can you find me a [chinese](cuisine) restaurant
+    - [delhi](location)
+    - [American](cuisine)
+    - [700](price)
+    - [120](price)
+    - [Rs. 300 to 700](price)
+    - please find me a restaurant in [ahmedabad](location)
+    - please show me a few [italian](cuisine) restaurants in [bangalore](location)
+    - Show me restraurants near [Kolkata](location) for [Italian](cuisine) in price range of [Rs. 300 to 700](price)
+    - Show me [American](cuisine) or [Mexican](cuisine) restaurant in price range of [Lesser than Rs. 300](price)
+    - Search [Chinese](cuisine) in [Guntur](location) of price range [More than 700](location)
+    - Find me [American](cuisine) restaurant in [Kolkata](location)
+    - Find me restaurant in [Kolkatta](location)
+    - Hi, show be [chinese](cuisine) restaurants
+    - Near [Darjeeling](location)
+    - Ok, search for a restaurant in [Mumbai](location)
+    - [Mexican](cuisine)
+    - Hi show me [North Indian](cuisine) restaurant in [Howrah](location)
+    - Please show me restaurants in [Hyderabad](location) that serve [South Indian](cuisine) food.
+    - [Lesser than Rs. 300](price)
+    - Hi show me restaurants near [Kolkata](location) serving [Chinese](cuisine) food
+    - [300 to 700](price)
+    - Hi, please show me options to dine out in [Darjeeling](location)
+    - Hi, show me [Mexican](cuisine) eat outs in [Kannur](location)
+    - [More than 700](price)
+    - Please show me [italian](cuisine) restaurants
+    - Near [Guntur](location)
+    - Lesser than Rs. [300](price)
+    - Hi show me restaurants in [Puducherry](location)
+    - Ok, then please show me for [Bhopall](location)
+    - [Lesser than Rs](price). [300](price)
+    - Hi show me restaurants where meal for 2 people is priced below Rs [300](price)
+    - Near [New Delhi]{"entity": "location", "value": "Delhi"}
+    - Hi show me [chinese](cuisine) restaurants in price range [300 to 700](price)
+    - Near [Calcutta]{"entity": "location", "value": "Kolkata"}
+    - Can you then search in price range [greater than 700](price)?
+    - Hi show me some eat outs in [Bombay]{"entity": "location", "value": "mumbai"}
+    - [Rs](price). [300 to 700](price)
+    - Hi give some resturants where dining cost is below [300](price)
+    - the location is [Nardhawan](location)
+    - [bengaluru]{"entity": "location", "value": "bangalore"}
+    - show be something below [270](price)
+    - price above [700](price)
+    - cost should be [<300](price)
+    - I am famished, find me some dining places
+    - I am in [bengaluru]{"entity": "location", "value": "bangalore"}
+    - I would like some [American](cuisine) delicacy
+    - my budget is upto rs [300](price)
+    - I want to dine out at some [chinese](cuisine) restaurant in [chandigarh](location). Can you show me available [budgets](price)?
+    - [<300](price)
+    - Hi there, please show me some eat outs in [Mysore](location) serving [Mexican](cuisine) food.
+    - [>700](price)
+    - Bro please give address of restaurants serving [North Indian](cuisine) foods [under 300](price)
+    - Find the place in [Warangal](location)
+    - Which restaurants in [Lucknow](location) serve [Mexican](cuisine) foods price between [300 and 700](price)?
+    - What are the available budget options for [Italian](cuisine) restaurants in [Kolhaapur](location)?
+    - my budget is [greater than 700](price)
+    - Show me restaurants serving [American](cuisine) dishes
+    - [less than 300](price)
+    - In [Calcutta]{"entity": "location", "value": "Kolkata"}
+    - Please show me restaurant in [Bombai]{"entity": "location", "value": "mumbai"} serving [north indian](cuisine) cuisine under [Rs](price). [300](price) for [two](people) people.
+    - [no need to send me mail](send_email)
+    - Search [Mexican](cuisine) resturants serving food above Rs. [700](price) for two people in [Bengaluru]{"entity": "location", "value": "bangalore"}
+    - [yes send mail](send_email) to [vojohori.kre@ero.edu](email)
+    - Hi, my budget is between [300 to 700](price) and I want to have [mexican](cuisine) food. Can you show me some restaurants?
+    - show me places near [Gowaltor](location)
+    - Pleas find me restaurant in [Calcutta]{"entity": "location", "value": "Kolkata"}
+    - Hi show me restaurant in [Bengaluru]{"entity": "location", "value": "bangalore"}
+    - > [700](price)
+    - Show me [italian](cuisine) restaurant in [Bombay]{"entity": "location", "value": "mumbai"}
+    - Show me retaurant which are [cheaper than 300](price) for [two people](people)
+    - In [Hyderabad](location)
+    - priced between [300 and 700](price)
+    - located at [xyzw](location)
+    - find in [wertu](location)
+    - find me place to dine at [djsia](location)
+    - Hi show me some restaurant in [Kozhikode](location) serving [chinese](cuisine)
+    - [More than 700](price)
+    - Show me some restaurant in [Kozhikode](location)
+    - [South Indian](cuisine)
+    - [Rs](price). [300 to 700](price)
+    - I live in [Malappuram](location). Show me some restaurants near here.
+    - show me [chinese](cuisine) restaurants
+    - between [300 and 700 ruppees](price)
+    - Give me some restaurant in [Vaddodra](location).
+    - [American](cuisine)
+    - Something [cheaper than 300](price)
+    - Give me a restaurant in [RingaRinga](location) serving [South Indian](cuisine) cuisine
+    - [ddk.2jmd@kdl.co.in](email)
+    - [2s9_1js@jsj.aoo.co](email)
+- synonym: chinese
+  examples: |
+    - chines
+    - Chinese
+    - Chines
+- synonym: Delhi
+  examples: |
+    - New Delhi
+- synonym: '4'
+  examples: |
+    - four
+- synonym: Kolkata
+  examples: |
+    - Calcutta
+    - calcutta
+- synonym: mumbai
+  examples: |
+    - Bombay
+    - Bombai
+    - mumbae
+    - bombay
+- synonym: bangalore
+  examples: |
+    - bengaluru
+    - Bengaluru
+- synonym: mid
+  examples: |
+    - moderate
+- synonym: vegetarian
+  examples: |
+    - veggie
+    - vegg
+- regex: greet
+  examples: |
+    - hey[^\s]*
+- regex: pincode
+  examples: |
+    - [0-9]{6}

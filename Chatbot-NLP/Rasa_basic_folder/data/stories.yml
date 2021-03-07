@@ -1,0 +1,1126 @@
+version: "2.0"
+stories:
+- story: complete path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi
+  - action: action_verify_city
+  - slot_was_set:
+    - location: delhi
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_price_range
+  - intent: restaurant_search
+    entities:
+    - price : More than 700
+  - slot_was_set:
+    - price : More than 700
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: delhi
+  - action: utter_to_send_mail
+  - intent: send_email
+    entities:
+    - send_email : Yes send email
+  - slot_was_set:
+    - send_email : Yes send email
+  - action: utter_ask_email
+  - intent: send_email
+    entities:
+    - email: goja.kumar@gmail.com
+  - slot_was_set:
+    - email: goja.kumar@gmail.com
+  - action: action_send_mail
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: location specified
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: kolkatta
+  - slot_was_set:
+    - location: kolkatta
+  - action: action_verify_city
+  - slot_was_set:
+    - location: kolkata
+  - intent: affirm
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: american
+  - slot_was_set:
+    - cuisine: american
+  - action: utter_ask_price_range
+  - intent: restaurant_search
+    entities:
+    - price : Rs. 300 to 700
+  - slot_was_set:
+    - price : Rs. 300 to 700
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: kolkata
+  - action: utter_to_send_mail
+  - intent: donot_send_email
+    entities:
+    - donot_send_email : No donot send emaill
+  - slot_was_set:
+    - donot_send_email : No donot send email
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+
+- story: complete path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: darjeeling
+  - slot_was_set:
+    - location: darjeeling
+  - action: action_verify_city
+  - slot_was_set:
+    - location: null
+  - action: utter_service_unavailable
+  - intent: affirm
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: Kolkata
+    - cuisine: Chinese
+  - slot_was_set:
+    - cuisine: Chinese
+  - slot_was_set:
+    - location: Kolkata
+  - action: action_verify_city
+  - slot_was_set:
+    - location: Kolkata
+  - action: utter_ask_price_range
+  - intent: restaurant_search
+    entities:
+    - price: 300 to 700
+  - slot_was_set:
+    - price: 300 to 700
+  - action: action_search_restaurants
+  - action: utter_to_send_mail
+  - intent: send_email
+    entities:
+    - send_email : Yes please send email
+  - slot_was_set:
+    - send_email : Yes please send email
+  - action: utter_ask_email
+  - intent: send_email
+    entities:
+    - email: praneshsaha01@gmail.com
+  - slot_was_set:
+    - email: praneshsaha01@gmail.com
+  - action: action_send_mail
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_2
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: Darjeeling
+  - slot_was_set:
+    - location: Darjeeling
+  - action: action_verify_city
+  - slot_was_set:
+    - location: null
+  - action: utter_service_unavailable
+  - intent: affirm
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_3
+  steps:
+  - intent: restaurant_search
+    entities:
+    - cuisine: Mexican
+    - location: Kannur
+  - slot_was_set:
+    - cuisine: Mexican
+  - slot_was_set:
+    - location: Kannur
+  - action: action_verify_city
+  - slot_was_set:
+    - location: Kannur
+  - action: utter_ask_price_range
+  - intent: restaurant_search
+    entities:
+    - price: More than 700
+  - slot_was_set:
+    - price: More than 700
+  - action: action_search_restaurants
+  - action: utter_to_send_mail
+  - intent: send_email
+    entities:
+    - send_email : Yes send me email
+  - slot_was_set:
+    - send_email : Yes send me email
+  - action: utter_ask_email
+  - intent: send_email
+    entities:
+    - email: praneshsaha01@gmail.com
+  - slot_was_set:
+    - email: praneshsaha01@gmail.com
+  - action: action_send_mail
+  - slot_was_set:
+    - send_email: done
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+  - slot_was_set:
+    - cuisine: italian
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: Guntur
+  - slot_was_set:
+    - location: Guntur
+  - action: action_verify_city
+  - slot_was_set:
+    - location: Guntur
+  - action: utter_ask_price_range
+  - intent: restaurant_search
+    entities:
+    - price: Lesser than Rs
+    - price: '300'
+  - slot_was_set:
+    - price: '300'
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Guntur
+  - action: utter_to_send_mail
+  - intent: send_email
+    entities:
+    - send_email : send email to me
+  - slot_was_set:
+    - send_email : send email to me
+  - action: utter_ask_email
+  - intent: send_email
+    entities:
+    - email: ranganasaha01@gmail.com
+  - slot_was_set:
+    - email: ranganasaha01@gmail.com
+  - action: action_send_mail
+  - slot_was_set:
+    - send_email: done
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_5
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: Puducherry
+  - slot_was_set:
+    - location: Puducherry
+  - action: action_verify_city
+  - slot_was_set:
+    - location: none
+  - action: utter_service_unavailable
+  - intent: restaurant_search
+    entities:
+    - location: Bhopall
+  - slot_was_set:
+    - location: Bhopall
+  - action: action_verify_city
+  - slot_was_set:
+    - location: Bhopal
+  - intent: affirm
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: South Indian
+    - cuisine: South Indian
+  - slot_was_set:
+    - cuisine: South Indian
+  - action: utter_ask_price_range
+  - intent: restaurant_search
+    entities:
+    - price: Lesser than Rs
+    - price: '300'
+  - slot_was_set:
+    - price: '300'
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Bhopal
+  - action: utter_to_send_mail
+  - intent: send_email
+    entities:
+    - send_email: yes send email
+  - slot_was_set:
+    - send_email: yes send email
+  - action: utter_ask_email
+  - intent: send_email
+    entities:
+    - email: praneshsaha01@gmail.com
+  - slot_was_set:
+    - email: praneshsaha01@gmail.com
+  - action: action_send_mail
+  - slot_was_set:
+    - send_email: done
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_22
+  steps:
+  - intent: restaurant_search
+    entities:
+    - price: '300'
+  - slot_was_set:
+    - price: '300'
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: Delhi
+  - slot_was_set:
+    - location: Delhi
+  - action: action_verify_city
+  - slot_was_set:
+    - location: Delhi
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: Italian
+  - slot_was_set:
+    - cuisine: Italian
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Delhi
+  - action: utter_to_send_mail
+  - intent: donot_send_email
+    entities:
+    - donot_send_email: no don't send email
+  - slot_was_set:
+    - donot_send_email: no don't send email
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_6
+  steps:
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+    - price: 300 to 700
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - price: 300 to 700
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: Kolkata
+  - slot_was_set:
+    - location: Kolkata
+  - action: action_verify_city
+  - slot_was_set:
+    - location: Kolkata
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Kolkata
+  - intent: restaurant_search
+    entities:
+    - price: greater than 700
+  - slot_was_set:
+    - price: greater than 700
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Kolkata
+  - action: utter_to_send_mail
+  - intent: donot_send_email
+    entities:
+    - donot_send_email: no don't send email
+  - slot_was_set:
+    - donot_send_email: no don't send email
+  - intent: goodbye
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_7
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: mumbai
+  - slot_was_set:
+    - location: mumbai
+  - action: action_verify_city
+  - slot_was_set:
+    - location: mumbai
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: American
+  - slot_was_set:
+    - cuisine: American
+  - action: utter_ask_price_range
+  - intent: restaurant_search
+    entities:
+    - price: Rs
+    - price: 300 to 700
+  - slot_was_set:
+    - price: 300 to 700
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: mumbai
+  - action: utter_to_send_mail
+  - intent: donot_send_email
+    entities:
+    - donot_send_email: no don't send email
+  - slot_was_set:
+    - donot_send_email: no don't send email
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_8
+  steps:
+  - intent: restaurant_search
+    entities:
+    - price: '300'
+  - slot_was_set:
+    - price: '300'
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: Nardhawan
+  - slot_was_set:
+    - location: Nardhawan
+  - action: action_verify_city
+  - slot_was_set:
+    - location: null
+  - action: utter_service_unavailable
+  - action: action_reset_all_slots
+  
+- story: interactive_story_9
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: bangalore
+  - slot_was_set:
+    - location: bangalore
+  - action: action_verify_city
+  - slot_was_set:
+    - location: bangalore
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: American
+  - slot_was_set:
+    - cuisine: American
+  - action: utter_ask_price_range
+  - intent: restaurant_search
+    entities:
+    - price: '300'
+  - slot_was_set:
+    - price: '300'
+  - action: action_search_restaurants
+  - action: utter_to_send_mail
+  - intent: donot_send_email
+    entities:
+    - donot_send_email: please don't bother to send
+  - slot_was_set:
+    - donot_send_email: please don't bother to send
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_10
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+    - location: chandigarh
+    - price: budgets
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - location: chandigarh
+  - slot_was_set:
+    - price: budgets
+  - action: action_verify_city
+  - slot_was_set:
+    - location: chandigarh
+  - action: utter_ask_price_range
+  - intent: restaurant_search
+    entities:
+    - price: '300'
+  - slot_was_set:
+    - price: '300'
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chandigarh
+  - action: utter_to_send_mail
+  - intent: send_email
+    entities:
+    - send_email: Yes send the mail at
+    - email: bookwormpranesh@gmail.com
+  - slot_was_set:
+    - email: bookwormpranesh@gmail.com
+  - slot_was_set:
+    - send_email: Yes send the mail at
+  - action: action_send_mail
+  - slot_was_set:
+    - send_email: done
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_11
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: Mysore
+    - cuisine: Mexican
+  - slot_was_set:
+    - cuisine: Mexican
+  - slot_was_set:
+    - location: Mysore
+  - action: action_verify_city
+  - slot_was_set:
+    - location: Mysore
+  - action: utter_ask_price_range
+  - intent: restaurant_search
+    entities:
+    - price: '700'
+  - slot_was_set:
+    - price: '700'
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Mysore
+  - action: utter_to_send_mail
+  - intent: send_email
+    entities:
+    - send_email: Yes
+    - email: boka.set@rti.in
+  - slot_was_set:
+    - email: boka.set@rti.in
+  - slot_was_set:
+    - send_email: Yes
+  - action: action_send_mail
+  - slot_was_set:
+    - send_email: done
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_12
+  steps:
+  - intent: restaurant_search
+    entities:
+    - cuisine: North Indian
+    - price: under 300
+  - slot_was_set:
+    - cuisine: North Indian
+  - slot_was_set:
+    - price: under 300
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: Warangal
+  - slot_was_set:
+    - location: Warangal
+  - action: action_verify_city
+  - slot_was_set:
+    - location: Warangal
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Warangal
+  - action: utter_to_send_mail
+  - intent: donot_send_email
+    entities:
+    - donot_send_email: don't send any mail
+  - slot_was_set:
+    - donot_send_email: don't send any mail
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_13
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: Lucknow
+    - cuisine: Mexican
+    - price: 300 and 700
+  - slot_was_set:
+    - cuisine: Mexican
+  - slot_was_set:
+    - location: Lucknow
+  - slot_was_set:
+    - price: 300 and 700
+  - action: action_verify_city
+  - slot_was_set:
+    - location: Lucknow
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Lucknow
+  - action: utter_to_send_mail
+  - intent: donot_send_email
+    entities:
+    - donot_send_email: I don't need mail
+  - slot_was_set:
+    - donot_send_email: I don't need mail
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_14
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: Italian
+    - location: Kolhaapur
+  - slot_was_set:
+    - cuisine: Italian
+  - slot_was_set:
+    - location: Kolhaapur
+  - action: action_verify_city
+  - slot_was_set:
+    - location: Kolhapur
+  - action: utter_ask_price_range
+  - intent: restaurant_search
+    entities:
+    - price: greater than 700
+  - slot_was_set:
+    - price: greater than 700
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Kolhapur
+  - action: utter_to_send_mail
+  - intent: send_email
+    entities:
+    - send_email: yes send email
+  - slot_was_set:
+    - send_email: yes send email
+  - action: utter_ask_email
+  - intent: send_email
+    entities:
+    - email: praneshsaha01@gmail.com
+    - send_email: Send mail to
+  - slot_was_set:
+    - email: praneshsaha01@gmail.com
+  - slot_was_set:
+    - send_email: Send mail to
+  - action: action_send_mail
+  - slot_was_set:
+    - send_email: done
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_15
+  steps:
+  - intent: restaurant_search
+    entities:
+    - cuisine: American
+  - slot_was_set:
+    - cuisine: American
+  - action: utter_ask_price_range
+  - intent: restaurant_search
+    entities:
+    - price: less than 300
+  - slot_was_set:
+    - price: less than 300
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: Kolkata
+  - slot_was_set:
+    - location: Kolkata
+  - action: action_verify_city
+  - slot_was_set:
+    - location: Kolkata
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Kolkata
+  - action: utter_to_send_mail
+  - intent: send_email
+    entities:
+    - send_email: Yes send out the recommendations
+  - slot_was_set:
+    - send_email: Yes send out the recommendations
+  - action: utter_ask_email
+  - intent: send_email
+    entities:
+    - email: retqi@email.in
+  - slot_was_set:
+    - email: retqi@email.in
+  - action: action_send_mail
+  - slot_was_set:
+    - send_email: done
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_16
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: mumbai
+    - cuisine: north indian
+    - price: Rs
+    - price: '300'
+    - people: two
+  - slot_was_set:
+    - cuisine: north indian
+  - slot_was_set:
+    - location: mumbai
+  - slot_was_set:
+    - price: '300'
+  - action: action_verify_city
+  - slot_was_set:
+    - location: mumbai
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: mumbai
+  - action: utter_to_send_mail
+  - intent: donot_send_email
+    entities:
+    - donot_send_email: no need to send me mail
+  - slot_was_set:
+    - donot_send_email: no need to send me mail
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_17
+  steps:
+  - intent: restaurant_search
+    entities:
+    - cuisine: Mexican
+    - price: '700'
+    - location: bangalore
+  - slot_was_set:
+    - cuisine: Mexican
+  - slot_was_set:
+    - location: bangalore
+  - slot_was_set:
+    - price: '700'
+  - action: action_verify_city
+  - slot_was_set:
+    - location: bangalore
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: bangalore
+  - action: utter_to_send_mail
+  - intent: send_email
+    entities:
+    - send_email: yes send mail
+    - email: vojohori.kre@ero.edu
+  - slot_was_set:
+    - email: vojohori.kre@ero.edu
+  - slot_was_set:
+    - send_email: yes send mail
+  - action: action_send_mail
+  - slot_was_set:
+    - send_email: done
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_18
+  steps:
+  - intent: restaurant_search
+    entities:
+    - price: 300 to 700
+    - cuisine: mexican
+  - slot_was_set:
+    - cuisine: mexican
+  - slot_was_set:
+    - price: 300 to 700
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: Gowaltor
+  - slot_was_set:
+    - location: Gowaltor
+  - action: action_verify_city
+  - slot_was_set:
+    - location: null
+  - intent: affirm
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_19
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: bangalore
+  - slot_was_set:
+    - location: bangalore
+  - action: action_verify_city
+  - slot_was_set:
+    - location: bangalore
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: American
+    - cuisine: American
+  - slot_was_set:
+    - cuisine: American
+  - action: utter_ask_price_range
+  - intent: restaurant_search
+    entities:
+    - price: '700'
+    - price: '700'
+  - slot_was_set:
+    - price: '700'
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: bangalore
+  - action: utter_to_send_mail
+  - intent: send_email
+    entities:
+    - send_email: Yes send me mail
+  - slot_was_set:
+    - send_email: Yes send me mail
+  - action: utter_ask_email
+  - intent: send_email
+    entities:
+    - email: pritishsaha2789@gmail.com
+  - slot_was_set:
+    - email: pritishsaha2789@gmail.com
+  - action: action_send_mail
+  - slot_was_set:
+    - send_email: done
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_20
+  steps:
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+    - location: mumbai
+  - slot_was_set:
+    - cuisine: italian
+  - slot_was_set:
+    - location: mumbai
+  - action: action_verify_city
+  - slot_was_set:
+    - location: mumbai
+  - action: utter_ask_price_range
+  - intent: restaurant_search
+    entities:
+    - price: Lesser than Rs
+    - price: '300'
+    - price: Lesser than Rs
+    - price: '300'
+  - slot_was_set:
+    - price: '300'
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: mumbai
+  - action: utter_to_send_mail
+  - intent: donot_send_email
+    entities:
+    - donot_send_email: no don't send email
+  - slot_was_set:
+    - donot_send_email: no don't send email
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_21
+  steps:
+  - intent: restaurant_search
+    entities:
+    - price: between 300 and 700
+  - slot_was_set:
+    - price: between 300 and 700
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: Hyderabad
+  - slot_was_set:
+    - location: Hyderabad
+  - action: action_verify_city
+  - slot_was_set:
+    - location: Hyderabad
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: North Indian
+  - slot_was_set:
+    - cuisine: North Indian
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Hyderabad
+  - action: utter_to_send_mail
+  - intent: send_email
+    entities:
+    - send_email: yes send email
+  - slot_was_set:
+    - send_email: yes send email
+  - action: utter_ask_email
+  - intent: restaurant_search
+    entities:
+    - email: ramboKumar@rte.in
+  - slot_was_set:
+    - email: ramboKumar@rte.in
+  - action: action_send_mail
+  - slot_was_set:
+    - send_email: done
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: complete path 3
+  steps:
+  - intent: restaurant_search
+    entities:
+    - price : 300 to 700
+    - location: widkid
+  - slot_was_set:
+    - price: 300 to 700
+  - slot_was_set:
+    - location: widkid
+  - action: action_verify_city
+  - slot_was_set:
+    - location: widkid
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: eoedl
+  - slot_was_set:
+    - cuisine: eoedl
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: widkid
+  - action: utter_to_send_mail
+  - intent: donot_send_email
+    entities:
+    - donot_send_email: don't send mail
+  - slot_was_set:
+    - donot_send_email: don't send mail
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_23
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: Kozhikode
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - location: Kozhikode
+  - action: action_verify_city
+  - slot_was_set:
+    - location: Kozhikode
+  - action: utter_ask_price_range
+  - intent: restaurant_search
+    entities:
+    - price: More than 700
+  - slot_was_set:
+    - price: More than 700
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Kozhikode
+  - action: utter_to_send_mail
+  - intent: send_email
+    entities:
+    - send_email: yes send email
+  - slot_was_set:
+    - send_email: yes send email
+  - action: utter_ask_email
+  - intent: send_email
+    entities:
+    - email: praneshsaha01@gmail.com
+  - slot_was_set:
+    - email: praneshsaha01@gmail.com
+  - action: action_send_mail
+  - slot_was_set:
+    - send_email: done
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_24
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: Kozhikode
+  - slot_was_set:
+    - location: Kozhikode
+  - action: action_verify_city
+  - slot_was_set:
+    - location: Kozhikode
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: South Indian
+  - slot_was_set:
+    - cuisine: South Indian
+  - action: utter_ask_price_range
+  - intent: restaurant_search
+    entities:
+    - price: Rs
+    - price: 300 to 700
+  - slot_was_set:
+    - price: 300 to 700
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Kozhikode
+  - action: utter_to_send_mail
+  - intent: donot_send_email
+    entities:
+    - donot_send_email: no don't send email
+  - slot_was_set:
+    - donot_send_email: no don't send email
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_25
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: Malappuram
+  - slot_was_set:
+    - location: Malappuram
+  - action: action_verify_city
+  - slot_was_set:
+    - location: Malappuram
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_price_range
+  - intent: restaurant_search
+    entities:
+    - price: 300 and 700 ruppees
+  - slot_was_set:
+    - price: 300 and 700 ruppees
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Malappuram
+  - action: utter_to_send_mail
+  - intent: send_email
+    entities:
+    - send_email: yes send email
+  - slot_was_set:
+    - send_email: yes send email
+  - action: utter_ask_email
+  - intent: send_email
+    entities:
+    - send_email: forward the list to
+    - email: riga.riga@wei.com
+  - slot_was_set:
+    - email: riga.riga@wei.com
+  - slot_was_set:
+    - send_email: forward the list to
+  - action: action_send_mail
+  - slot_was_set:
+    - send_email: done
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_25
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: Vaddodra
+  - slot_was_set:
+    - location: Vaddodra
+  - action: action_verify_city
+  - slot_was_set:
+    - location: Vadodara
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: American
+  - slot_was_set:
+    - cuisine: American
+  - action: utter_ask_price_range
+  - intent: restaurant_search
+    entities:
+    - price: cheaper than 300
+  - slot_was_set:
+    - price: cheaper than 300
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Vadodara
+  - action: utter_to_send_mail
+  - intent: donot_send_email
+    entities:
+    - donot_send_email: don't bother
+  - slot_was_set:
+    - donot_send_email: don't bother
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: interactive_story_26
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: RingaRinga
+    - cuisine: South Indian
+  - slot_was_set:
+    - cuisine: South Indian
+  - slot_was_set:
+    - location: RingaRinga
+  - action: action_verify_city
+  - slot_was_set:
+    - location: null
+  - action: utter_service_unavailable
+  - action: utter_goodbye
+  - action: action_reset_all_slots
+  
+- story: full_path_4
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: Bistol
+  - slot_was_set:
+    - location: Bistol
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: Chinese
+  - slot_was_set:
+    - cuisine: Chinese
+  - action: utter_ask_price_range
+  - intent: restaurant_search
+    entities:
+    - price: less than 300
+  - slot_was_set:
+    - price: less than 300
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Bistol
+  - action: utter_to_send_mail
+  - intent: donot_send_email
+    entities:
+    - donot_send_email: don't send any mail
+  - slot_was_set:
+    - donot_send_email: don't send any mail
+  - action: utter_goodbye
+  - action: action_listen
+  - action: action_reset_all_slots
